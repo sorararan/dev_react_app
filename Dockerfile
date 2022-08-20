@@ -1,11 +1,11 @@
-FROM alpine:latest
+FROM node:alpine
 ENV APP_PATH=/usr/src/app
 
-RUN apk update \
-  && apk add --no-cache nodejs npm
+RUN apk update
 
+USER node
 WORKDIR $APP_PATH
-COPY ./app .
+COPY --chown=node:node ./app .
 RUN npm install
 
 EXPOSE 3000

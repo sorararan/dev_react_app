@@ -9,6 +9,8 @@ services:
     volumes:
       - ./app:/usr/src/app
       - node_modules:/usr/src/app/node_modules
+    environment:
+      - WDS_SOCKET_PORT=0
 
 volumes:
   node_modules: {}
